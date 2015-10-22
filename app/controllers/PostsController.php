@@ -21,6 +21,7 @@ class PostsController extends \BaseController
 	public function index()
 	{
 		$posts = Post::all();
+
 		return Response::json([
 			'data' => $this->lessonTransformer->transformCollection($posts->toArray())
 		]);
