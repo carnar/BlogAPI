@@ -1,6 +1,17 @@
 <?php
 
-class PostsController extends \BaseController {
+use Blog\Post\Post;
+use Blog\Transformers\PostTransformer;
+
+class PostsController extends \BaseController 
+{
+	private $lessonTransformer;
+
+	public function __construct(PostTransformer $lessonTransformer)
+	{
+		$this->lessonTransformer = $lessonTransformer;
+	}
+
 
 	/**
 	 * Display a listing of the resource.
@@ -11,7 +22,7 @@ class PostsController extends \BaseController {
 	{
 		$posts = Post::all();
 		return Response::json([
-			'data' => $posts->toArray()
+			'data' => $this->lessonTransformer->transformCollection($posts->toArray())
 		]);
 	}
 
@@ -57,7 +68,7 @@ class PostsController extends \BaseController {
 		}
 
 		return Response::json([
-			'data' => $post->toArray()
+			'data' => $this->lessonTransformer->transform($post)
 		], 200);
 	}
 
@@ -96,6 +107,4 @@ class PostsController extends \BaseController {
 	{
 		//
 	}
-
-
 }

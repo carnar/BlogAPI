@@ -1,5 +1,7 @@
 <?php
 
+namespace Blog\User;
+
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
