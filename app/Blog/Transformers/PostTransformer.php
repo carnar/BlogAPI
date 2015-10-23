@@ -10,7 +10,7 @@ class PostTransformer extends Transformer
             'id' => (int) $post['id'],
             'title' => $post['title'],
             'body' => $post['content'],
-            'published_at' => $post['created_at']
+            'published_at' => (string) $post['created_at']
         ];
     }
 }

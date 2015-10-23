@@ -46,7 +46,11 @@ class PostsController extends \BaseController
 	 */
 	public function store()
 	{
-		echo 'store';
+		$post = Post::find(1);
+
+		return Response::json([
+			'data' => $this->lessonTransformer->transform($post)
+		], 201);
 	}
 
 

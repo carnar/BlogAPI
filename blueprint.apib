@@ -1,0 +1,134 @@
+FORMAT: 1A
+
+# Blog API
+
+Blog is a simple API for publish and show blog posts.
+
+# Group Posts
+
+Resources related to posts in the API.
+
+## Posts Collection [/posts]
+
+### List All Posts [GET]
+
++ Response 200 (application/json)
+
+            {
+                "data": [
+                    {
+                    "id": 1,
+                    "title": "Sint reiciendis unde aut.",
+                    "body": "Nisi nam quis natus unde et ipsum. Consequatur ratione eos qui minus cum dolore reprehenderit. Velit velit excepturi adipisci voluptatem ab necessitatibus. Commodi recusandae voluptatem totam fugit eos adipisci atque ab.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 2,
+                    "title": "Ducimus maiores ut recusandae eum.",
+                    "body": "Excepturi vero ut architecto neque at illo deleniti. Aut consequatur omnis commodi accusantium nulla magni commodi. Aspernatur fugit in ratione. Blanditiis et reiciendis a beatae aut blanditiis veniam. Maxime quas aspernatur consequatur quasi et et ipsa.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 3,
+                    "title": "Doloremque eum culpa consectetur.",
+                    "body": "Distinctio sed fuga excepturi corrupti harum. Laudantium eum eum sint architecto. Facilis molestiae nam beatae non quasi atque aut. Deserunt dolor voluptatem voluptatem omnis. Eius vel voluptas molestiae dolores quo ad.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 4,
+                    "title": "Ut aut fugit asperiores.",
+                    "body": "Corrupti recusandae velit incidunt atque. Culpa reiciendis quas quaerat. Non incidunt quo et qui. Ullam magni est nihil sed sed illum laborum.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 5,
+                    "title": "Quis exercitationem itaque et voluptate.",
+                    "body": "Itaque culpa consequatur dolorum modi tempore. Id quo et et placeat a. Nostrum inventore omnis totam repellat odio nulla. Et qui esse nemo sit aut nesciunt. Sunt iusto saepe autem sint consequuntur. Et autem debitis quibusdam dolorem similique. Consectetur aut a quae.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 6,
+                    "title": "Earum sint modi sunt numquam repudiandae sit.",
+                    "body": "Aut et laudantium est in earum vero incidunt. Repudiandae eum repellendus iure. Dolores distinctio sequi cupiditate est repudiandae cupiditate voluptatem. Commodi et vitae delectus ipsa praesentium. Non explicabo sed voluptatum.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 7,
+                    "title": "Non et omnis ut.",
+                    "body": "Minima aspernatur odio rem iusto asperiores. Aliquam est itaque quae ut quis aperiam. Commodi minus neque et excepturi harum fuga. Culpa molestiae quis illo omnis tenetur vel officia. Numquam aut vero et labore quia.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 8,
+                    "title": "Alias deserunt iste accusantium aperiam maxime adipisci dignissimos.",
+                    "body": "Necessitatibus laborum ut illo recusandae. Explicabo optio molestias consequatur porro dolores rem facilis. Et dignissimos voluptas quae explicabo ut odit. Inventore qui ut consectetur voluptates odio quia perferendis. Rerum facilis corrupti nisi nihil. Accusantium sunt ratione ut ad perferendis.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 9,
+                    "title": "Dolorem vel tempora molestiae saepe.",
+                    "body": "Beatae delectus in nihil ut in quisquam in. Aut repellendus recusandae sit rerum et minima ex. Velit occaecati nam et quo aut nihil. Natus est earum facere ea commodi. Deserunt cupiditate et nisi voluptas sapiente consequatur. Aut eius ipsa voluptas earum non incidunt.",
+                    "published_at": "2015-10-21 20:33:34"
+                    },
+                    {
+                    "id": 10,
+                    "title": "Consequatur id ad eum cumque.",
+                    "body": "Enim quod est eum tempora facilis aliquam dolores cupiditate. Ea nostrum explicabo deleniti odio. Corporis rerum occaecati sunt odit. Quae reiciendis numquam qui. Porro minima quia nostrum saepe. Ea vel laboriosam vitae dolorem officia. Sed consequatur sed ut molestiae sint totam tenetur.",
+                    "published_at": "2015-10-21 20:33:34"
+                    }
+                ]
+            }
+
+### Create New Post [POST]
+
+You can create your own post using this action. I takes a JSON containing the title and the content.
+
++ title (string) - Post Title 
++ content (string) - Post Content
+
++ Request (application/json)
+
+        {
+            "title": "Sint reiciendis unde aut.",
+            "content": "Nisi nam quis natus unde et ipsum. Consequatur ratione eos qui minus cum dolore reprehenderit. Velit velit excepturi adipisci voluptatem ab necessitatibus. Commodi recusandae voluptatem totam fugit eos adipisci atque ab." 
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /posts/1
+
+    + Body
+
+            {
+                "data": {
+                    "id": 1,
+                    "title": "Sint reiciendis unde aut.",
+                    "body": "Nisi nam quis natus unde et ipsum. Consequatur ratione eos qui minus cum dolore reprehenderit. Velit velit excepturi adipisci voluptatem ab necessitatibus. Commodi recusandae voluptatem totam fugit eos adipisci atque ab.",
+                    "published_at": "2015-10-21 20:33:34"
+                    }
+            }
+
+## Post [/posts/{post_id}]
+
++ Parameters
+    + post_id: `1` (number, required) - Numeric `id` of the post.
+
+
+### View a Post Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+            "data": {
+                "id": 1,
+                "title": "Sint reiciendis unde aut.",
+                "body": "Nisi nam quis natus unde et ipsum. Consequatur ratione eos qui minus cum dolore reprehenderit. Velit velit excepturi adipisci voluptatem ab necessitatibus. Commodi recusandae voluptatem totam fugit eos adipisci atque ab.",
+                "published_at": "2015-10-21 20:33:34"
+                }
+        }
+
+### Delete [DELETE]
+
++ Response 204
